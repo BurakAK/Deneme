@@ -13,3 +13,19 @@ C:\Users\BURAK\documents\visual studio 2017\Projects\FaceIdentifyApp\FaceIdentif
 C:\Users\BURAK\documents\visual studio 2017\Projects\FaceIdentifyApp\FaceIdentifyApp\bin\Debug\NReco.VideoInfo.xml
 C:\Users\BURAK\documents\visual studio 2017\Projects\FaceIdentifyApp\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.exe
 C:\Users\BURAK\documents\visual studio 2017\Projects\FaceIdentifyApp\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.pdb
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\FaceIdentifyApp.exe
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\FaceIdentifyApp.pdb
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\FaceSDK.NET.dll
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoConverter.dll
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoInfo.dll
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\System.Data.SqlServerCe.dll
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoConverter.xml
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoInfo.xml
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csprojResolveAssemblyReference.cache
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Form1.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Live.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.OpenDialog.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Properties.Resources.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csproj.GenerateResource.Cache
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.exe
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.pdb
