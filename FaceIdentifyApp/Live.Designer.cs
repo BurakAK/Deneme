@@ -91,6 +91,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "Live";
             this.Size = new System.Drawing.Size(1002, 519);
+            this.Load += new System.EventHandler(this.Live_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

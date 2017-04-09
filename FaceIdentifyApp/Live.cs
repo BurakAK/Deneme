@@ -389,6 +389,52 @@ namespace FaceIdentifyApp
             int count = videoInfo.Duration.Seconds + videoInfo.Duration.Minutes * 60 + videoInfo.Duration.Hours * 60 * 60;
             return count;
         }
+
+        private void Live_Load(object sender, EventArgs e)
+        {
+            if (FSDK.FSDKE_OK != FSDK.ActivateLibrary("VBsVmYmHr/5JxUlk3q0KHjILz7R3Hb5OEhCQ7KdCg/tPbQqJfAaz8ok/9+iTgDp/KjGjkBi23HeCaUq8KKtKeXXN3xbe+bKfQ8q/3mfG6sad3AGUYDj6E+Qi2pzCWFgb4vqWDB3pLzUw+hnOZ7///CBV63IaB1kh7XF6VCaGtNw="))
+            {
+                MessageBox.Show("Please run the License Key Wizard (Start - Luxand - FaceSDK - License Key Wizard)", "Error activating FaceSDK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
+            if (FSDK.InitializeLibrary() != FSDK.FSDKE_OK)
+                MessageBox.Show("Error initializing FaceSDK!", "Error");
+
+            FaceSearchList = new List<TFaceRecord>();
+
+            pictureBox1.Dock = DockStyle.None;
+
+            FaceSearchImageList = new ImageList();
+            Size size = new Size();
+            size.Height = 150;
+            size.Width = 150;
+            FaceSearchImageList.ImageSize = size;
+            FaceSearchImageList.ColorDepth = ColorDepth.Depth24Bit;
+
+            listView1.View = View.LargeIcon;
+            listView1.LargeImageList = FaceSearchImageList;
+
+            resultImagelist = new ImageList();
+            Size size100 = new Size();
+            size100.Height = 150;
+            size100.Width = 150;
+            resultImagelist.ImageSize = size100;
+            resultImagelist.ColorDepth = ColorDepth.Depth24Bit;
+
+            DataGridViewImageColumn imgCool = new DataGridViewImageColumn();
+            imgCool.HeaderText = "Macthes";
+            imgCool.Name = "Macthes";
+            dataGridView1.Columns.Add(imgCool);
+
+            DataGridViewImageColumn imgCool1 = new DataGridViewImageColumn();
+            imgCool1.HeaderText = "Subject";
+            imgCool1.Name = "Subject";
+            dataGridView1.Columns.Add(imgCool1);
+
+            dataGridView1.ColumnCount = 3;
+            dataGridView1.Columns[2].Name = "Features";
+        }
     }
 }
   
