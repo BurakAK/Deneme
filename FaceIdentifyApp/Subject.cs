@@ -33,45 +33,11 @@ namespace FaceIdentifyApp
 
         }
 
-        /* private void textBox1_TextChanged(object sender, EventArgs e)
-         {
-
-         }
-
-         private void pictureBox1_Click(object sender, EventArgs e)
-         {
-
-         }
-
-
-
-
-         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-         {
-             if (this.listView1.SelectedIndices.Count > 0)
-             {
-
-                 //pictureBox1.Image = null;
-                 Image img = Image.FromFile(FaceList[listView1.SelectedIndices[0]].ImageFileName);
-                 pictureBox1.Height = img.Height;
-                 pictureBox1.Width = img.Width;
-                 pictureBox1.Image = img;
-
-                 pictureBox1.Refresh();
-                 Graphics gr = pictureBox1.CreateGraphics();
-                 gr.DrawRectangle(Pens.LightGreen, FaceList[listView1.SelectedIndices[0]].FacePosition.xc - FaceList[listView1.SelectedIndices[0]].FacePosition.w / 2, FaceList[listView1.SelectedIndices[0]].FacePosition.yc - FaceList[listView1.SelectedIndices[0]].FacePosition.w / 2, FaceList[listView1.SelectedIndices[0]].FacePosition.w, FaceList[listView1.SelectedIndices[0]].FacePosition.w);
-
-                 for (int i = 0; i < 2; ++i)
-                 {
-                     FSDK.TPoint tp = FaceList[listView1.SelectedIndices[0]].FacialFeatures[i];
-                     gr.DrawEllipse(Pens.Blue, tp.x, tp.y, 3, 3);
-                 }
-             }
-         }*/
+       
 
         private void Subject_Load(object sender, EventArgs e)
         {
-
+            textBox1.Focus();
            SubjectList = db.LoadSubject(Constants.conString);
 
             FaceList = new List<TFaceRecord>();
@@ -132,6 +98,7 @@ namespace FaceIdentifyApp
             if (textBox1.Text.Length == 0)
             {
                 MessageBox.Show("Please Enter the Subject Name");
+                textBox1.Focus();
             }
             else
             {
