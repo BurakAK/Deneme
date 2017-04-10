@@ -104,3 +104,7 @@ C:\Projects\FaceDeneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Subject.r
 C:\Projects\FaceDeneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csproj.GenerateResource.Cache
 C:\Projects\FaceDeneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.exe
 C:\Projects\FaceDeneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.pdb
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Settings.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Splash.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Subject.resources
+C:\MlgBilisimCodeBank\Deneme\trunk\FaceIdentifyApp\bin\Debug\FaceIdentifyApp.exe.config
