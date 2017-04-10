@@ -260,6 +260,89 @@ namespace FaceIdentifyApp
             }
         }
 
+
+
+
+
+
+
+        public void UpdateDBProvider(String conString, String DBProvider, String DBname, String DBpassword, String DBport)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"UPDATE Settings(DBProvider, DBNAME, DBPassword, DBPort, ThresholdValue) VALUES(
+                    @DBProvider, @DBname,@DBpassword, @DBport, @ThresholdValue
+                    )", conn))
+                {
+                    cmd.Parameters.AddWithValue(@"DBProvider", DBProvider);
+                    cmd.Parameters.AddWithValue(@"DBname", DBname);
+                    cmd.Parameters.AddWithValue(@"DBpassword", DBpassword);
+                    cmd.Parameters.AddWithValue(@"DBport", DBport);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        public void RestoreDefaultSettings(string conString)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"UPDATE Settings SET DBName = @DBname, DBPassword = @DBpassword, 
+               DBPort = @DBport, ThresholdValue = @ThresholdValue 
+                    )", conn))
+                {
+                    cmd.Parameters.AddWithValue(@"DBname", "SQL Server Compact");
+                    cmd.Parameters.AddWithValue(@"DBpassword", "1234");
+                    cmd.Parameters.AddWithValue(@"DBport", "1433");
+                    cmd.Parameters.AddWithValue(@"ThresholdValue", "5");
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+
+        public void UpdateThresholdValue(string ThresholdValue, String conString)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"UPDATE Settings SET ThresholdValue = @ThresholdValue
+                    ", conn))
+                {
+                    cmd.Parameters.AddWithValue(@"ThresholdValue", ThresholdValue);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public string GetDBSetting(string conString)
         {
             string trasHold = null ;

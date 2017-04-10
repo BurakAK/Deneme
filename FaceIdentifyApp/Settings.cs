@@ -15,6 +15,10 @@ namespace FaceIdentifyApp
 
     public partial class Settings : UserControl
     {
+
+        DbConnection db = new DbConnection();
+        String selectedText;
+
         public Settings()
         {
             InitializeComponent();
@@ -69,9 +73,20 @@ namespace FaceIdentifyApp
             treeView1.ExpandAll();
 
             treeView1.SelectedNode = node2;
+
+
+
+            string thresholdValue = db.GetDBSetting(Constants.conString);
+            trackBar1.Value = int.Parse(thresholdValue);
+            label1.Text = trackBar1.Value.ToString();
+
+
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+
+
+
+        private void treeView1_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
             if ("Detect Gender" == treeView1.SelectedNode.Text)
             {
@@ -87,6 +102,10 @@ namespace FaceIdentifyApp
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 textBox3.Visible = false;
+                button1.Visible = true;
+                button2.Visible = false;
+
+                selectedText = e.Node.Text;
 
             }
 
@@ -104,7 +123,10 @@ namespace FaceIdentifyApp
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 textBox3.Visible = false;
+                button1.Visible = true;
+                button2.Visible = false;
 
+                selectedText = e.Node.Text;
 
             }
             else if ("Threshold Value" == treeView1.SelectedNode.Text)
@@ -121,6 +143,10 @@ namespace FaceIdentifyApp
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 textBox3.Visible = false;
+                button1.Visible = true;
+                button2.Visible = false;
+
+                selectedText = e.Node.Text;
 
             }
             else if ("Source Database" == treeView1.SelectedNode.Text)
@@ -137,6 +163,10 @@ namespace FaceIdentifyApp
                 textBox1.Visible = true;
                 textBox2.Visible = true;
                 textBox3.Visible = true;
+                button1.Visible = true;
+                button2.Visible = false;
+
+                selectedText = e.Node.Text;
 
             }
             else if ("Tracker Memory" == treeView1.SelectedNode.Text)
@@ -153,6 +183,11 @@ namespace FaceIdentifyApp
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 textBox3.Visible = false;
+                button1.Visible = true;
+                button2.Visible = false;
+
+                selectedText = e.Node.Text;
+
             }
             else if ("Recognition Performance" == treeView1.SelectedNode.Text)
             {
@@ -168,6 +203,10 @@ namespace FaceIdentifyApp
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 textBox3.Visible = false;
+                button1.Visible = true;
+                button2.Visible = false;
+
+                selectedText = e.Node.Text;
 
             }
 
@@ -185,22 +224,45 @@ namespace FaceIdentifyApp
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 textBox3.Visible = false;
+                button1.Visible = false;
+                button2.Visible = true;
+
+                selectedText = e.Node.Text;
 
 
             }
+
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (selectedText == "Threshold Value")
+            {
+                db.UpdateThresholdValue(trackBar1.Value.ToString(), Constants.conString);
+                MessageBox.Show("Successfully Changed");
+
+            }
+
+        }
+
+        private void trackBar1_Scroll_1(object sender, EventArgs e)
         {
             label1.Text = trackBar1.Value.ToString();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            //  db.DropDBSettings();
-            //  db.InsertDBSettings(textBox1.Text, textBox2.Text, textBox1.Text, trackBar1.Value);
+
+            db.TruncateDBSettings(Constants.conString);
+            db.InsertInitialDBSettings(Constants.conString);
+
+            string thresholdValue = db.GetDBSetting(Constants.conString);
+            trackBar1.Value = int.Parse(thresholdValue);
+            label1.Text = trackBar1.Value.ToString();
 
             MessageBox.Show("Successfully Changed");
+
 
         }
     }
