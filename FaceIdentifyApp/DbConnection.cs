@@ -24,6 +24,8 @@ namespace FaceIdentifyApp
                 {
                     en.CreateDatabase();
                     CreateTable(conString);
+                    CreateSettingsTable(conString);
+                    InsertInitialDBSettings(conString);
                 }
             }
         }
@@ -192,5 +194,94 @@ namespace FaceIdentifyApp
                 conn.Close();
             }
         }
+
+
+        public void CreateSettingsTable(string conString)
+        {
+            using (conn = new SqlCeConnection(Constants.conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"create table Settings(
+                     ThresholdValue nvarchar(256),
+                     DBName nvarchar(256),
+                     DBPassword nvarchar(256),
+                     DBPort nvarchar(256)
+                    )", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+
+        }
+
+
+        public void UpdateDBSettings(String conString, String DBProvider, String DBname, String DBpassword, String DBport, 
+            int ThresholdValue)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"INSERT INTO Settings(DBNAME, DBPassword, DBPort, ThresholdValue) VALUES(
+                    @DBname,@DBpassword, @DBport, @ThresholdValue
+                    )", conn))
+                {
+                    cmd.Parameters.AddWithValue(@"DBname", DBname);
+                    cmd.Parameters.AddWithValue(@"DBpassword", DBpassword);
+                    cmd.Parameters.AddWithValue(@"DBport", DBport);
+                    cmd.Parameters.AddWithValue(@"ThresholdValue", ThresholdValue);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+
+        public void InsertInitialDBSettings(String conString)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"INSERT INTO Settings(DBNAME, DBPassword, DBPort, ThresholdValue) VALUES(
+                    @DBname,@DBpassword, @DBport, @ThresholdValue
+                    )", conn))
+                {
+                    cmd.Parameters.AddWithValue(@"DBname", "SQL Server Compact");
+                    cmd.Parameters.AddWithValue(@"DBpassword", "1234");
+                    cmd.Parameters.AddWithValue(@"DBport", "1433");
+                    cmd.Parameters.AddWithValue(@"ThresholdValue", "5");
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+
+
+        public void TruncateDBSettings(string conString)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand(@"DELETE FROM Settings", conn))
+                {
+
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+
+
+
+
+
+
     }
 }
