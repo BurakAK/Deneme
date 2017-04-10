@@ -39,7 +39,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(564, 41);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(781, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 23);
             this.button1.TabIndex = 0;
@@ -49,7 +50,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(468, 361);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(468, 464);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -59,8 +61,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 364);
+            this.label1.Location = new System.Drawing.Point(55, 467);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 2;
@@ -69,27 +72,32 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(23, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(33, 70);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 313);
+            this.pictureBox1.Size = new System.Drawing.Size(665, 387);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(549, 70);
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Location = new System.Drawing.Point(737, 57);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(163, 284);
+            this.listView1.Size = new System.Drawing.Size(230, 430);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(173, 361);
+            this.textBox1.Location = new System.Drawing.Point(173, 464);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(271, 20);
             this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // Subject
             // 
@@ -102,7 +110,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Subject";
-            this.Size = new System.Drawing.Size(723, 403);
+            this.Size = new System.Drawing.Size(991, 506);
             this.Load += new System.EventHandler(this.Subject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

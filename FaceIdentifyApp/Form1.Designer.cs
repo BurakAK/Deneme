@@ -31,14 +31,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.live1 = new FaceIdentifyApp.Live();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.subject1 = new FaceIdentifyApp.Subject();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.settings1 = new FaceIdentifyApp.Settings();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -46,10 +44,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1016, 546);
+            this.tabControl1.Size = new System.Drawing.Size(1051, 514);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -58,17 +57,27 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1008, 520);
+            this.tabPage1.Size = new System.Drawing.Size(1043, 488);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Live";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // live1
             // 
-            this.live1.Location = new System.Drawing.Point(0, 1);
+            this.live1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.live1.Location = new System.Drawing.Point(3, 3);
             this.live1.Name = "live1";
-            this.live1.Size = new System.Drawing.Size(1002, 519);
+            this.live1.Size = new System.Drawing.Size(1037, 482);
             this.live1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1043, 488);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Settings";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -76,48 +85,32 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1008, 520);
+            this.tabPage2.Size = new System.Drawing.Size(1043, 488);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Subject";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // subject1
             // 
-            this.subject1.Location = new System.Drawing.Point(70, 96);
+            this.subject1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subject1.Location = new System.Drawing.Point(3, 3);
             this.subject1.Name = "subject1";
-            this.subject1.Size = new System.Drawing.Size(723, 403);
+            this.subject1.Size = new System.Drawing.Size(1037, 482);
             this.subject1.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.settings1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1008, 520);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Settings";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // settings1
-            // 
-            this.settings1.Location = new System.Drawing.Point(21, 16);
-            this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(771, 380);
-            this.settings1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 544);
+            this.ClientSize = new System.Drawing.Size(1051, 514);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,9 +120,8 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private Live live1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage2;
         private Subject subject1;
-        private Settings settings1;
     }
 }
