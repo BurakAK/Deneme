@@ -240,7 +240,7 @@ namespace FaceIdentifyApp
         }
 
 
-        public void InsertInitialDBSettings(String conString)
+        public void InsertInitialDBSettings(string conString)
         {
             using (conn = new SqlCeConnection(conString))
             {
@@ -260,7 +260,25 @@ namespace FaceIdentifyApp
             }
         }
 
+        public string GetDBSetting(string conString)
+        {
+            string trasHold = null ;
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
 
+                using (cmd = new SqlCeCommand(@"Select * from Settings", conn))
+                {
+                    SqlCeDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        trasHold = reader.GetString(0);
+                    }
+                }
+                conn.Close();
+            }
+            return trasHold;
+        }
 
         public void TruncateDBSettings(string conString)
         {
@@ -276,12 +294,5 @@ namespace FaceIdentifyApp
                 conn.Close();
             }
         }
-
-
-
-
-
-
-
     }
 }

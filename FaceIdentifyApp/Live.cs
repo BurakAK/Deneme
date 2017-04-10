@@ -32,7 +32,7 @@ namespace FaceIdentifyApp
         private string fileName;
         private string selected;
 
-        public float FaceDetectionThreshold = 5;
+        public float FaceDetectionThreshold;
         public static float FARValue = 100;
 
         private List<TFaceRecord> FaceSearchList;
@@ -64,6 +64,8 @@ namespace FaceIdentifyApp
             else if (fileName != null && selected.ToString() == "Video")
             {
                 SubjectList = db.LoadSubject(Constants.conString);
+                FaceDetectionThreshold = float.Parse(db.GetDBSetting(Constants.conString));
+
                 loadVideo(fileName);
                 Thread t = new Thread(delegate () { matchesFace(); });
                 t.Start();
@@ -71,13 +73,17 @@ namespace FaceIdentifyApp
             else if (folderName != null && selected.ToString() == "Image")
             {
                 SubjectList =db.LoadSubject(Constants.conString);
+                FaceDetectionThreshold = float.Parse(db.GetDBSetting(Constants.conString));
+
                 loadSubjectFolder(folderName);
                 Thread t = new Thread(delegate () { matchesFace(); });
                 t.Start();
             }
             else if (fileName != null && selected.ToString() == "Image")
             {
-                 SubjectList = db.LoadSubject(Constants.conString);
+                SubjectList = db.LoadSubject(Constants.conString);
+                FaceDetectionThreshold = float.Parse(db.GetDBSetting(Constants.conString));
+
                 loadSubject(fileName);
                 Thread t = new Thread(delegate () { matchesFace(); });
                 t.Start();
@@ -85,7 +91,7 @@ namespace FaceIdentifyApp
         }
 
         private void loadSubject(string fileName)
-        {
+        { 
             FSDK.SetFaceDetectionParameters(false, true, 384);
             FSDK.SetFaceDetectionThreshold((int)FaceDetectionThreshold);
 
@@ -398,6 +404,7 @@ namespace FaceIdentifyApp
 
         private void Live_Load(object sender, EventArgs e)
         {
+           
 
             FaceSearchList = new List<TFaceRecord>();
 

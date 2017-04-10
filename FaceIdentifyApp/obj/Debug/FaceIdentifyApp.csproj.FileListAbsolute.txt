@@ -75,7 +75,6 @@ C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoInfo.dll
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\bin\Debug\System.Data.SqlServerCe.dll
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoConverter.xml
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\bin\Debug\NReco.VideoInfo.xml
-C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csprojResolveAssemblyReference.cache
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Form1.resources
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Live.resources
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.OpenDialog.resources
@@ -85,3 +84,4 @@ C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Subject.
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csproj.GenerateResource.Cache
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.exe
 C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.pdb
+C:\MlgCodeBank\FaceApp2\trunk\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csprojResolveAssemblyReference.cache

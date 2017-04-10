@@ -31,9 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.live1 = new FaceIdentifyApp.Live();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.subject1 = new FaceIdentifyApp.Subject();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -48,7 +48,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1051, 514);
+            this.tabControl1.Size = new System.Drawing.Size(1051, 554);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -57,7 +57,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1043, 488);
+            this.tabPage1.Size = new System.Drawing.Size(1043, 528);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Live";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -67,17 +67,8 @@
             this.live1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.live1.Location = new System.Drawing.Point(3, 3);
             this.live1.Name = "live1";
-            this.live1.Size = new System.Drawing.Size(1037, 482);
+            this.live1.Size = new System.Drawing.Size(1037, 522);
             this.live1.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1043, 488);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Settings";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -98,11 +89,20 @@
             this.subject1.Size = new System.Drawing.Size(1037, 482);
             this.subject1.TabIndex = 0;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1043, 488);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Settings";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 514);
+            this.ClientSize = new System.Drawing.Size(1051, 554);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
