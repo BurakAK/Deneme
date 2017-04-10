@@ -50,7 +50,7 @@ namespace FaceIdentifyApp
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            OpenDialog dl = new OpenDialog();
+            sOpenDialog dl = new OpenDialog();
             dl.ShowDialog();
 
             folderName = dl.folderName;
@@ -392,6 +392,7 @@ namespace FaceIdentifyApp
 
         private void Live_Load(object sender, EventArgs e)
         {
+
             FaceSearchList = new List<TFaceRecord>();
 
             pictureBox1.Dock = DockStyle.None;

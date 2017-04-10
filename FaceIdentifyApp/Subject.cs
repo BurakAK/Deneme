@@ -14,9 +14,6 @@ namespace FaceIdentifyApp
     public partial class Subject : UserControl
     {
 
-        string stringCon = "DataSource=\"Subjects.sdf\"; Password=\"1234\"";
-        bool size = true;
-
         public static float FaceDetectionThreshold = 3;
         public static float FARValue = 100;
 
@@ -24,6 +21,7 @@ namespace FaceIdentifyApp
 
         static ImageList imageList1;
         DbConnection db = new DbConnection();
+        List<TFaceRecord> SubjectList = new List<TFaceRecord>();
 
         public Subject()
         {
@@ -73,7 +71,8 @@ namespace FaceIdentifyApp
 
         private void Subject_Load(object sender, EventArgs e)
         {
-            db.LoadSubject(stringCon);
+
+           SubjectList = db.LoadSubject(Constants.conString);
 
             FaceList = new List<TFaceRecord>();
 
@@ -91,21 +90,11 @@ namespace FaceIdentifyApp
             listView1.LargeImageList = imageList1;
 
 
-
-            if (FSDK.FSDKE_OK != FSDK.ActivateLibrary("VBsVmYmHr/5JxUlk3q0KHjILz7R3Hb5OEhCQ7KdCg/tPbQqJfAaz8ok/9+iTgDp/KjGjkBi23HeCaUq8KKtKeXXN3xbe+bKfQ8q/3mfG6sad3AGUYDj6E+Qi2pzCWFgb4vqWDB3pLzUw+hnOZ7///CBV63IaB1kh7XF6VCaGtNw="))
+            for (int i = 0; i < SubjectList.Count; i++)
             {
-                MessageBox.Show("Please run the License Key Wizard (Start - Luxand - FaceSDK - License Key Wizard)", "Error activating FaceSDK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-
-            if (FSDK.InitializeLibrary() != FSDK.FSDKE_OK)
-                MessageBox.Show("Error initializing FaceSDK!", "Error");
-
-            for (int i = 0; i < db.SubjectList.Count; i++)
-            {
-                FaceList.Add(db.SubjectList[i]);
+                FaceList.Add(SubjectList[i]);
                 listView1.Items.Add((imageList1.Images.Count - (imageList1.Images.Count - i)).ToString()
-                    , db.SubjectList[i].suspectName
+                    , SubjectList[i].suspectName
                     , (imageList1.Images.Count - (imageList1.Images.Count - i)));
 
                 listView1.SelectedIndices.Clear();
@@ -119,7 +108,7 @@ namespace FaceIdentifyApp
         {
 
            
-            db.ClearDB(stringCon);
+            db.ClearDB(Constants.conString);
 
             var confirmResult = MessageBox.Show("Are you sure to delete this database ??",
                                     "Confirm Delete!!",
@@ -132,7 +121,7 @@ namespace FaceIdentifyApp
                 imageList1.Images.Clear();
                 pictureBox1.Width = 0;
                 pictureBox1.Height = 0;
-                db.CreateDB(stringCon);
+                db.CreateDB(Constants.conString);
                 GC.Collect();
                 MessageBox.Show("The database was delete successfully!!");
             }
@@ -196,9 +185,11 @@ namespace FaceIdentifyApp
 
                             listView1.SelectedIndices.Clear();
                             // listView1.SelectedIndices.Add(listView1.Items.Count - 1);
+
+                            db.SaveSubject(fr, Constants.conString);
                         }
                         
-                        db.SaveSubject(stringCon);
+                     
                         listView1.Refresh();
 
                     }

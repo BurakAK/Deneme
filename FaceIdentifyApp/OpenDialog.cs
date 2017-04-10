@@ -75,7 +75,7 @@ namespace FaceIdentifyApp
             if (tabControl1.SelectedTab.Text == "Video")
             {
                 selectedTab = tabControl1.SelectedTab.Text;
-                if (textBox1.Text.Length >= 1)
+                if (textBox4.Text.Length >= 1)
                 {
                     fileName = textBox4.Text;
                 }
@@ -87,7 +87,7 @@ namespace FaceIdentifyApp
             else if (tabControl1.SelectedTab.Text == "Image")
             {
                 selectedTab = tabControl1.SelectedTab.Text;
-                if (textBox3.Text.Length >= 1)
+                if (textBox1.Text.Length >= 1)
                 {
                     fileName = textBox1.Text;
                 }
