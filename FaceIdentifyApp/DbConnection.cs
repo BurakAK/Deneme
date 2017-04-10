@@ -15,6 +15,7 @@ namespace FaceIdentifyApp
         private SqlCeCommand cmd;
         private SqlCeConnection conn;
 
+        public ImageList SubjectImageList;
         public void CreateDB(string conString)
         {
             using (SqlCeEngine en = new SqlCeEngine(conString))
@@ -67,10 +68,57 @@ namespace FaceIdentifyApp
                 conn.Close();
             }
         }
+        public void  SaveSubject(TFaceRecord fr , string conString)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+                TFaceRecord tfr = new TFaceRecord();
+                tfr = fr;
 
+                Image img = null;
+                Image img_face = null;
+                MemoryStream strm = new MemoryStream();
+                MemoryStream strm_face = new MemoryStream();
+                img = tfr.image.ToCLRImage();
+                img_face = tfr.faceImage.ToCLRImage();
+                img.Save(strm, System.Drawing.Imaging.ImageFormat.Jpeg);
+                img_face.Save(strm_face, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] img_array = new byte[strm.Length];
+                byte[] img_face_array = new byte[strm_face.Length];
+                strm.Position = 0;
+                strm.Read(img_array, 0, img_array.Length);
+                strm_face.Position = 0;
+                strm_face.Read(img_face_array, 0, img_face_array.Length);
+
+                using (cmd = new SqlCeCommand("insert into FaceList (ImageFileName,SubjectName,FacePositionXc,FacePositionYc" +
+                   ",FacePositionW,FacePositionAngle,Eye1X,Eye1Y,Eye2X,Eye2Y,Template,Image,FaceImage) values " +
+                   "(@IFName,@SName,@FPXc,@FPYc,@FPW,@FPA,@Eye1X,@Eye1Y,@Eye2X,@Eye2Y,@Template,@Image,@FaceImage)", conn))
+                {
+                    cmd.Parameters.AddWithValue(@"IFName", tfr.ImageFileName);
+                    cmd.Parameters.AddWithValue(@"SName", tfr.suspectName);
+                    cmd.Parameters.AddWithValue(@"FPXc", tfr.FacePosition.xc);
+                    cmd.Parameters.AddWithValue(@"FPYc", tfr.FacePosition.yc);
+                    cmd.Parameters.AddWithValue(@"FPW", tfr.FacePosition.w);
+                    cmd.Parameters.AddWithValue(@"FPA", tfr.FacePosition.angle);
+                    cmd.Parameters.AddWithValue(@"Eye1X", tfr.FacialFeatures[0].x);
+                    cmd.Parameters.AddWithValue(@"Eye1Y", tfr.FacialFeatures[0].y);
+                    cmd.Parameters.AddWithValue(@"Eye2X", tfr.FacialFeatures[1].x);
+                    cmd.Parameters.AddWithValue(@"Eye2Y", tfr.FacialFeatures[1].y);
+                    cmd.Parameters.AddWithValue(@"Template", tfr.Template);
+                    cmd.Parameters.AddWithValue(@"Image", img_array);
+                    cmd.Parameters.AddWithValue(@"FaceImage", img_face_array);
+
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            MessageBox.Show(" Subject added successfully  !!");
+        }
         public List<TFaceRecord> LoadSubject(string conString)
         {
             InitializeSDK();
+            SubjectImageList = new ImageList();
 
             List<TFaceRecord> SubjectList = new List<TFaceRecord>();
             try
@@ -113,6 +161,7 @@ namespace FaceIdentifyApp
                             fr.faceImage = new FSDK.CImage(img_face);
 
                             SubjectList.Add(fr);
+                            SubjectImageList.Images.Add(fr.faceImage.ToCLRImage());
 
                             img.Dispose();
                             img_face.Dispose();
@@ -127,6 +176,21 @@ namespace FaceIdentifyApp
             }
 
             return SubjectList;
+        }
+
+        public void ClearDB(string conString)
+        {
+            using (conn = new SqlCeConnection(conString))
+            {
+                conn.Open();
+
+                using (cmd = new SqlCeCommand("DELETE FROM FaceList", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
         }
     }
 }

@@ -392,15 +392,6 @@ namespace FaceIdentifyApp
 
         private void Live_Load(object sender, EventArgs e)
         {
-            if (FSDK.FSDKE_OK != FSDK.ActivateLibrary("VBsVmYmHr/5JxUlk3q0KHjILz7R3Hb5OEhCQ7KdCg/tPbQqJfAaz8ok/9+iTgDp/KjGjkBi23HeCaUq8KKtKeXXN3xbe+bKfQ8q/3mfG6sad3AGUYDj6E+Qi2pzCWFgb4vqWDB3pLzUw+hnOZ7///CBV63IaB1kh7XF6VCaGtNw="))
-            {
-                MessageBox.Show("Please run the License Key Wizard (Start - Luxand - FaceSDK - License Key Wizard)", "Error activating FaceSDK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-
-            if (FSDK.InitializeLibrary() != FSDK.FSDKE_OK)
-                MessageBox.Show("Error initializing FaceSDK!", "Error");
-
             FaceSearchList = new List<TFaceRecord>();
 
             pictureBox1.Dock = DockStyle.None;
