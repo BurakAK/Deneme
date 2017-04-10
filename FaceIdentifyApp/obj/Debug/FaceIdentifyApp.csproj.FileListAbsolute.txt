@@ -46,3 +46,4 @@ C:\Users\BURAK\Desktop\Deneme-master\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.e
 C:\Users\BURAK\Desktop\Deneme-master\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.pdb
 C:\Users\BURAK\Desktop\Deneme-master\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.Form1.resources
 C:\Users\BURAK\Desktop\Deneme-master\FaceIdentifyApp\bin\Debug\FaceIdentifyApp.exe.config
+C:\Users\BURAK\Desktop\Deneme-master\FaceIdentifyApp\obj\Debug\FaceIdentifyApp.csprojResolveAssemblyReference.cache

@@ -50,7 +50,7 @@ namespace FaceIdentifyApp
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            sOpenDialog dl = new OpenDialog();
+            OpenDialog dl = new OpenDialog();
             dl.ShowDialog();
 
             folderName = dl.folderName;
