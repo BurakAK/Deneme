@@ -233,37 +233,43 @@ namespace FaceIdentifyApp
                 fr.image = new FSDK.CImage(fn);
 
                 fr.FacePosition = fr.image.DetectFace();
-
-                fr.faceImage = fr.image.CopyRect((int)(fr.FacePosition.xc - Math.Round(fr.FacePosition.w * 0.5)), (int)(fr.FacePosition.yc - Math.Round(fr.FacePosition.w * 0.5)), (int)(fr.FacePosition.xc + Math.Round(fr.FacePosition.w * 0.5)), (int)(fr.FacePosition.yc + Math.Round(fr.FacePosition.w * 0.5)));
-                try
+                if (0 == fr.FacePosition.w)
                 {
-                    fr.FacialFeatures = fr.image.DetectEyesInRegion(ref fr.FacePosition);
+                    if (fileName.Length <= 1) { }
                 }
-                catch (Exception ex2)
+                else
                 {
-                    MessageBox.Show(ex2.Message, "Error detecting eyes.");
-                }
+                    fr.faceImage = fr.image.CopyRect((int)(fr.FacePosition.xc - Math.Round(fr.FacePosition.w * 0.5)), (int)(fr.FacePosition.yc - Math.Round(fr.FacePosition.w * 0.5)), (int)(fr.FacePosition.xc + Math.Round(fr.FacePosition.w * 0.5)), (int)(fr.FacePosition.yc + Math.Round(fr.FacePosition.w * 0.5)));
+                    try
+                    {
+                        fr.FacialFeatures = fr.image.DetectEyesInRegion(ref fr.FacePosition);
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message, "Error detecting eyes.");
+                    }
 
-                try
-                {
-                    fr.Template = fr.image.GetFaceTemplateInRegion(ref fr.FacePosition); // get template with higher precision
-                }
-                catch (Exception ex2)
-                {
-                    MessageBox.Show(ex2.Message, "Error retrieving face template.");
-                }
+                    try
+                    {
+                        fr.Template = fr.image.GetFaceTemplateInRegion(ref fr.FacePosition); // get template with higher precision
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message, "Error retrieving face template.");
+                    }
 
-                FaceSearchList.Add(fr);
-                FaceSearchImageList.Images.Add(fr.faceImage.ToCLRImage());
+                    FaceSearchList.Add(fr);
+                    FaceSearchImageList.Images.Add(fr.faceImage.ToCLRImage());
 
-                listView1.Items.Add((FaceSearchImageList.Images.Count - 1).ToString(), fn.Split('\\')[fn.Split('\\').Length - 1], FaceSearchImageList.Images.Count - 1);
-                using (Image img = fr.image.ToCLRImage())
-                {
+                    listView1.Items.Add((FaceSearchImageList.Images.Count - 1).ToString(), fn.Split('\\')[fn.Split('\\').Length - 1], FaceSearchImageList.Images.Count - 1);
+                    using (Image img = fr.image.ToCLRImage())
+                    {
 
-                    pictureBox1.Image = img;
-                    pictureBox1.Refresh();
+                        pictureBox1.Image = img;
+                        pictureBox1.Refresh();
+                    }
+                    listView1.Refresh();
                 }
-                listView1.Refresh();
             }
             pictureBox1.Image = null;
         }
